@@ -1,0 +1,21 @@
+name: CI
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+      url: "andmlima.tk"
+  needs: build
+  steps:
+    - name: run a online sccript
+      run: echo Deploys Dev
